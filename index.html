@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en-GB">
+<head><meta name="robots" content="noindex,follow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Greg Hannan — senior front-end developer. An open studio of selected projects and the thinking behind them.">
+<title>Greg Hannan — Open Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#e9e9e3;--white:#fafaf5;--ink:#20231f;--muted:#5c625b;--line:#bec3b8;--orange:#ff5a30;--lime:#e8ff73;--mono:'IBM Plex Mono',monospace;--sans:'Space Grotesk',Arial,sans-serif;--ease:cubic-bezier(.2,.7,.15,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;background-image:linear-gradient(#20231f08 1px,transparent 1px),linear-gradient(90deg,#20231f08 1px,transparent 1px);background-size:32px 32px}body.modal-open{overflow:hidden}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:5px}button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:5px}button:disabled{cursor:default}button svg,a svg{pointer-events:none}::selection{background:var(--orange);color:var(--ink)}[hidden]{display:none!important}.shell{max-width:1800px;margin:0 auto;padding:0 32px}.mono{font:500 11px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.06em}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:fixed;top:-80px;left:24px;padding:12px 18px;background:var(--ink);color:white;z-index:10}.skip:focus{top:10px}
+.header{height:94px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink);gap:24px}.identity{display:flex;align-items:center;gap:14px}.monogram{display:grid;place-items:center;width:48px;height:48px;background:var(--ink);color:var(--paper);font-weight:700;font-size:23px;letter-spacing:-2px}.identity p{margin:0;line-height:1.35}.header nav{display:flex;gap:36px;align-items:center}.nav-contact{display:flex;gap:18px;align-items:center}.nav-contact span{display:grid;place-items:center;background:var(--orange);width:34px;height:34px;font:23px/1 var(--sans)}
+.hero{padding:22px 0 32px}.name{margin:0;font-size:clamp(55px,14.7vw,260px);font-weight:600;line-height:.99;letter-spacing:-.088em;white-space:nowrap;transform:translateX(-.055em)}.hero-bottom{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:end;padding-top:23px}.statement{margin:0;font-weight:500;letter-spacing:-.045em;font-size:clamp(25px,2.55vw,42px);line-height:1.16;max-width:650px}.bio-intro{display:flex;gap:30px;justify-content:flex-end;align-items:center}.cross{flex:none;position:relative;width:39px;height:39px;transform:rotate(0deg);transition:transform .5s var(--ease)}.cross:before,.cross:after{content:'';position:absolute;background:var(--orange);left:0;top:14px;width:39px;height:11px}.cross:after{transform:rotate(90deg)}.hero:hover .cross{transform:rotate(90deg)}.bio-intro p{margin:0;max-width:370px;font-size:15px;line-height:1.5}
+.bench{border:1px solid var(--ink);background:var(--white);box-shadow:6px 6px 0 #20231f1c}.bench-rail{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--orange);border-bottom:1px solid var(--ink)}.rail-label{display:flex;align-items:center;gap:12px}.rail-label:before{content:'';display:block;width:8px;height:8px;background:var(--ink);border-radius:50%}.bench-rail .rail-right{display:flex;gap:14px;align-items:center}.bench-rail .icon-btn{width:32px;height:30px;background:transparent;border-color:#20231f66}.bench-rail .icon-btn:hover{background:var(--ink);color:var(--paper)}.stage{display:grid;grid-template-columns:minmax(0,1.72fr) minmax(290px,1fr);min-height:490px}.display{position:relative;display:flex;flex-direction:column;padding:22px;background:linear-gradient(135deg,#e5e6df,#d3d6cd);border-right:1px solid var(--ink);min-width:0;overflow:hidden}.display:before,.display:after{content:'+';font:16px var(--mono);position:absolute;color:#777f72;top:5px}.display:before{left:6px}.display:after{right:6px}.browser-head{display:flex;justify-content:space-between;gap:15px;padding:9px 11px;background:var(--ink);color:#e7eadf;border:1px solid var(--ink);font:10px var(--mono);min-width:0}.browser-dots{display:flex;gap:4px;align-items:center;flex:none}.browser-dots i{display:block;width:5px;height:5px;border:1px solid #c8cec0;border-radius:50%}.browser-url{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.screen{display:block;position:relative;flex:1;width:100%;padding:0;border:1px solid var(--ink);border-top:0;background:#151712;overflow:hidden;text-align:left;cursor:zoom-in;aspect-ratio:1.6}.screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .65s var(--ease),filter .5s}.screen:hover img{transform:scale(1.035);filter:brightness(.8)}.screen-action{position:absolute;bottom:17px;left:17px;display:flex;align-items:center;gap:30px;background:var(--white);color:var(--ink);padding:13px 16px;box-shadow:3px 3px 0 var(--orange);transition:transform .3s var(--ease)}.screen-action span{font-size:24px;line-height:1}.screen:hover .screen-action{transform:translate(3px,-3px)}.display-foot{display:flex;justify-content:space-between;gap:12px;font:9px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.04em;padding-top:10px;color:#464e42}.dossier{background:var(--lime);display:flex;flex-direction:column;padding:25px 27px;position:relative;overflow:hidden}.file-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #20231f55;padding-bottom:12px}.file-top .serial{font-size:14px}.serial-mark{display:flex;gap:2px;align-items:center;height:15px}.serial-mark i{width:2px;height:100%;background:var(--ink)}.serial-mark i:nth-child(3n){width:4px}.serial-mark i:nth-child(2n){height:9px}.project-title{margin:24px 0 13px;font-size:clamp(30px,3vw,50px);font-weight:500;letter-spacing:-.055em;line-height:1.03}.project-summary{margin:0 0 25px;font-size:15px;line-height:1.55;max-width:440px}.file-data{margin-top:auto;display:grid;grid-template-columns:75px 1fr;gap:8px;font-size:12px;line-height:1.5}.file-data dt{color:#454f25;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.04em}.file-data dd{margin:0}.open-file{margin-top:23px;width:100%;border:1px solid var(--ink);background:var(--ink);color:var(--white);padding:13px 15px;display:flex;justify-content:space-between;align-items:center;transition:background .2s,color .2s}.open-file:hover{background:transparent;color:var(--ink)}.open-file span:not(.button-text){font:24px/1 var(--sans)}.stage-changing .stage-content{animation:insert .48s var(--ease) both}.stage-changing .screen img{animation:screen-in .48s var(--ease) both}@keyframes insert{from{opacity:0;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes screen-in{from{opacity:.25;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}
+.tray-section{padding:28px 0 0}.tray-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:12px}.tray-heading p{margin:0}.tray-nav{display:flex;gap:6px}.icon-btn{border:1px solid var(--ink);background:var(--paper);width:35px;height:35px;display:grid;place-items:center;font-size:19px;transition:background .2s,transform .2s}.icon-btn:hover{background:var(--orange);transform:translateY(-2px)}.trays{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 2px 14px;scrollbar-color:#969e8d transparent;scrollbar-width:thin}.tray{position:relative;flex:0 0 211px;scroll-snap-align:start;border:1px solid var(--line);padding:12px 12px 14px;background:#f3f3ed;text-align:left;display:flex;flex-direction:column;gap:10px;transition:transform .25s var(--ease),background .25s,border-color .25s;min-height:170px}.tray:hover{transform:translateY(-4px);border-color:var(--ink)}.tray[aria-selected=true]{background:var(--orange);border-color:var(--ink);box-shadow:3px 3px 0 var(--ink)}.tray-number{display:flex;justify-content:space-between;font-size:10px}.tray-number span:last-child{opacity:0}.tray[aria-selected=true] .tray-number span:last-child{opacity:1}.tray img{width:100%;height:80px;object-fit:cover;object-position:top;border:1px solid #20231f66;filter:saturate(.65);transition:filter .3s}.tray:hover img,.tray[aria-selected=true] img{filter:saturate(1)}.tray-title{font-size:15px;font-weight:500;line-height:1.15;letter-spacing:-.03em}.tray:focus-visible{outline-offset:-4px}.tray-helper{margin:2px 0 0;font-size:11px;color:var(--muted)}
+.profile{padding:88px 0 80px;display:grid;grid-template-columns:.75fr 1.25fr;gap:100px}.section-label{display:flex;align-items:center;gap:14px;margin:0 0 25px}.section-label:before{content:'+';display:grid;place-items:center;background:var(--ink);color:var(--paper);width:21px;height:21px;font:18px/1 var(--sans)}.profile h2{font-size:clamp(40px,5.2vw,78px);letter-spacing:-.07em;font-weight:500;line-height:1.02;margin:0}.profile-copy>p{font-size:22px;line-height:1.45;margin:0 0 22px;letter-spacing:-.025em}.capabilities{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.capabilities span{border:1px solid #909889;background:var(--paper);padding:7px 11px;font:11px var(--mono)}.career{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--ink);padding-top:20px;margin-top:30px;font-size:13px}.career p{margin:0}.career span{color:var(--muted);font-size:12px}.contact{background:var(--ink);color:var(--paper);padding:35px 30px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;position:relative;margin-bottom:30px}.contact:before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:repeating-linear-gradient(135deg,var(--lime) 0 12px,var(--ink) 12px 24px)}.contact p{margin:0 0 10px;color:var(--lime)}.contact h2{margin:0;font-size:clamp(38px,5vw,72px);font-weight:500;letter-spacing:-.055em;line-height:1.1}.contact a{width:74px;height:74px;border:1px solid var(--paper);display:grid;place-items:center;font-size:40px;transition:background .3s,color .3s,transform .3s}.contact a:hover{background:var(--lime);color:var(--ink);transform:rotate(-6deg);text-decoration:none}.contact a:focus-visible{outline-color:var(--lime)}.footer{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:0 0 28px;font:10px var(--mono);text-transform:uppercase;letter-spacing:.04em}.footer p{margin:0}.footer-links{display:flex;gap:22px}
+.inspector{width:min(1280px,calc(100% - 48px));max-height:calc(100dvh - 48px);border:1px solid var(--ink);padding:0;background:var(--paper);color:var(--ink);overflow:auto;box-shadow:12px 12px 0 #20231f66}.inspector::backdrop{background:#1d251dcc;backdrop-filter:blur(8px)}.inspector[open]{animation:dialog-in .4s var(--ease)}@keyframes dialog-in{from{opacity:0;transform:translateY(35px) scale(.98)}to{opacity:1;transform:none}}.inspector-bar{position:sticky;top:0;z-index:2;background:var(--orange);padding:12px 22px;border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;gap:15px}.close-dialog{border:1px solid var(--ink);background:transparent;padding:8px 11px;display:flex;gap:20px;align-items:center}.close-dialog:hover{background:var(--ink);color:var(--paper)}.dialog-heading{padding:30px 30px 20px;display:flex;justify-content:space-between;gap:20px;align-items:end}.dialog-heading h2{font-size:clamp(35px,5.3vw,70px);line-height:1;letter-spacing:-.06em;font-weight:500;margin:0}.dialog-heading p{max-width:260px;margin:0;font-size:12px}.dialog-tabs{margin:0 30px;display:flex;border-bottom:1px solid var(--ink);gap:0}.dialog-tabs button{font:500 12px var(--mono);border:1px solid var(--ink);border-bottom:0;background:transparent;padding:13px 25px}.dialog-tabs button+button{border-left:0}.dialog-tabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}.dialog-panel{padding:24px 30px 30px;outline:none}.preview-img{display:block;width:100%;height:auto;border:1px solid var(--ink);background:#151712}.preview-caption{margin:12px 0 0;color:var(--muted);font-size:11px}.notes-layout{display:grid;grid-template-columns:.65fr 1.35fr;gap:55px;padding:12px 0}.notes-layout h3{font-size:32px;font-weight:500;line-height:1.1;letter-spacing:-.045em;margin:15px 0}.notes-layout p{font-size:16px;margin:0;line-height:1.6}.contribution-list{list-style:none;margin:0;padding:0;counter-reset:notes}.contribution-list li{display:grid;grid-template-columns:33px 1fr;gap:14px;border-top:1px solid var(--ink);padding:19px 0;font-size:17px;line-height:1.5;counter-increment:notes}.contribution-list li:before{content:'0' counter(notes);font:11px var(--mono);padding-top:5px}.evidence-note{margin-top:23px!important;padding:15px;border-left:4px solid var(--orange);font-size:12px!important;background:#fff8}.dialog-footer{border-top:1px solid var(--ink);display:flex;justify-content:space-between;gap:18px;align-items:center;padding:19px 30px;background:var(--lime)}.live-link{display:flex;align-items:center;gap:20px}.live-link span[aria-hidden]{font:22px var(--sans)}.dialog-next{border:0;border-bottom:1px solid var(--ink);padding:5px 0;background:none}.dialog-next:hover{color:#546718}.dialog-footer a:focus-visible,.dialog-footer button:focus-visible{outline-offset:4px}
+@media(min-width:1800px){.name{font-size:260px}}@media(max-width:1100px){.shell{padding:0 24px}.header nav{gap:23px}.stage{grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);min-height:445px}.display{padding:17px}.dossier{padding:20px}.project-title{font-size:37px}.project-summary{font-size:14px}.hero-bottom{grid-template-columns:1fr 1fr;gap:25px}.bio-intro{gap:20px}.bio-intro p{font-size:13px}.profile{gap:45px}.profile-copy>p{font-size:20px}}
+@media(max-width:760px){.shell{padding:0 17px}.header{height:78px;gap:14px}.identity{gap:9px}.monogram{width:38px;height:38px;font-size:19px}.identity .mono{font-size:8px}.header nav{gap:18px;font-size:10px}.nav-contact{gap:7px}.nav-contact span{width:28px;height:28px}.header .nav-cv{display:none}.hero{padding-top:21px;padding-bottom:25px}.name{font-size:14.6vw;letter-spacing:-.085em}.hero-bottom{grid-template-columns:1fr 1fr;gap:20px;padding-top:22px}.statement{font-size:25px}.cross{display:none}.bio-intro p{font-size:12px;line-height:1.5}.stage{grid-template-columns:1fr;min-height:0}.display{border-right:0;border-bottom:1px solid var(--ink);padding:18px}.screen{aspect-ratio:1.65}.dossier{display:grid;grid-template-columns:1fr auto;gap:0 24px;padding:19px 21px}.file-top{grid-column:1/-1;padding-bottom:10px}.project-title{font-size:34px;margin:20px 0 12px;grid-column:1}.project-summary{grid-column:1;font-size:14px;max-width:none;margin-bottom:16px}.file-data{grid-column:1;grid-row:4;max-width:440px;margin:0;gap:5px}.open-file{grid-column:2;grid-row:2/5;align-self:end;width:70px;height:70px;justify-content:center;padding:0;margin:0}.open-file .button-text{display:none}.open-file span{font-size:32px}.bench-rail .rail-right>span:first-child{display:none}.bench-rail .rail-right{gap:9px}.bench-rail .icon-btn{width:30px;height:30px}.bench-rail{padding:10px 12px;font-size:9px}.screen-action{padding:10px 12px;font-size:10px;bottom:13px;left:13px}.display-foot{font-size:8px}.tray-section{padding-top:21px}.tray{flex-basis:180px;padding:10px;min-height:160px}.tray-title{font-size:14px}.tray img{height:75px}.tray-heading .mono{font-size:9px}.tray-helper{font-size:10px}.profile{padding:62px 0;grid-template-columns:1fr;gap:28px}.profile h2{max-width:400px;font-size:49px}.section-label{margin-bottom:18px}.profile-copy>p{font-size:20px}.career{margin-top:23px}.contact{padding:28px 22px;gap:18px}.contact h2{font-size:38px}.contact a{width:58px;height:58px;font-size:32px}.contact p{font-size:9px}.footer{font-size:8px;gap:12px}.footer-links{gap:14px}.inspector{width:calc(100% - 24px);max-height:calc(100dvh - 24px);box-shadow:6px 6px 0 #20231f66}.inspector-bar{padding:10px 15px;font-size:9px}.close-dialog{font-size:9px;padding:7px 9px;gap:12px}.dialog-heading{padding:24px 20px 20px;display:block}.dialog-heading h2{font-size:42px}.dialog-heading p{margin-top:12px;max-width:none;font-size:11px}.dialog-tabs{margin:0 20px}.dialog-tabs button{font-size:11px;padding:12px 18px}.dialog-panel{padding:20px}.notes-layout{grid-template-columns:1fr;gap:26px;padding:0}.notes-layout h3{font-size:28px}.notes-layout p{font-size:15px}.contribution-list li{font-size:15px;gap:10px;grid-template-columns:27px 1fr;padding:17px 0}.dialog-footer{padding:16px 20px;font-size:10px;flex-wrap:wrap;gap:13px}.dialog-next{font-size:10px}.preview-caption{font-size:10px}}
+@media(max-width:400px){.shell{padding:0 13px}.header nav{gap:13px}.identity .mono{display:none}.name{font-size:14.6vw}.hero-bottom{grid-template-columns:1fr;gap:16px}.statement{font-size:28px}.statement br{display:none}.bio-intro{justify-content:start}.bio-intro p{max-width:310px;font-size:13px}.dossier{gap:0 13px;padding:17px}.project-title{font-size:31px}.project-summary{font-size:13px}.open-file{width:52px;height:52px}.display{padding:13px}.display-foot span:last-child{display:none}.file-data{font-size:11px}.contact h2{font-size:33px}.contact a{width:48px;height:48px}.footer{align-items:start;flex-direction:column;gap:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.screen:hover img,.screen:hover .screen-action,.tray:hover,.icon-btn:hover,.contact a:hover,.hero:hover .cross{transform:none}}
+
+/* A short, skippable entrance. The portfolio remains present underneath. */
+.arrival{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden;animation:arrival-away 1150ms cubic-bezier(.76,0,.24,1) both}
+.arrival[hidden]{display:none}.arrival-skip{position:absolute;z-index:3;right:28px;bottom:25px;background:transparent;color:inherit;border:1px solid currentColor;padding:12px 18px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;min-height:44px}
+@keyframes arrival-away{0%,78%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.arrival{display:none!important}}
+
+/* The CSS grid remains the fallback for touch, reduced motion and no canvas. */
+#reactive-grid{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.shell{position:relative;z-index:1}body.reactive-grid{background-image:none}
+.arrival{background:var(--paper);color:var(--ink);background-image:linear-gradient(#20231f0b 1px,transparent 1px),linear-gradient(90deg,#20231f0b 1px,transparent 1px);background-size:32px 32px}.arrival-folder{position:relative;width:min(560px,78vw);padding:34px 34px 28px;border:1px solid var(--ink);background:var(--lime);box-shadow:7px 7px 0 #20231f22;animation:folder-place 800ms var(--ease) both}.arrival-folder:before{content:'PROJECT FILE / 01—09';position:absolute;bottom:100%;left:-1px;width:210px;padding:12px 16px;background:var(--orange);border:1px solid var(--ink);border-bottom:0;font:10px var(--mono);animation:folder-tab 700ms var(--ease) both}.arrival-folder strong{display:block;font:500 clamp(36px,6.5vw,76px)/.98 var(--sans);letter-spacing:-.07em;margin:24px 0 35px}.arrival-folder p{margin:0;padding-top:15px;border-top:1px solid #20231f80;font:10px var(--mono);text-transform:uppercase;letter-spacing:.05em}.assembly-line{position:absolute;top:50%;left:0;width:100%;height:1px;background:#20231f40;animation:assembly-line 850ms var(--ease) both}.assembly-line.vertical{top:0;left:50%;height:100%;width:1px;animation-name:assembly-vertical}.arrival-folder .mono{display:flex;justify-content:space-between}
+@keyframes folder-place{0%{opacity:0;transform:translateY(42px) rotate(-4deg) scale(.96)}25%{opacity:0}72%,100%{opacity:1;transform:none}}
+@keyframes folder-tab{0%,35%{transform:translateY(18px);opacity:0}75%,100%{transform:none;opacity:1}}
+@keyframes assembly-line{0%{transform:scaleX(0)}55%,100%{transform:scaleX(1)}}
+@keyframes assembly-vertical{0%,12%{transform:scaleY(0)}65%,100%{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce),(pointer:coarse){#reactive-grid{display:none!important}body.reactive-grid{background-image:linear-gradient(#20231f08 1px,transparent 1px),linear-gradient(90deg,#20231f08 1px,transparent 1px)}}
+</style>
+</head>
+<body>
+<div class="arrival" id="arrival" hidden aria-label="Open Studio introduction"><div class="assembly-line" aria-hidden="true"></div><div class="assembly-line vertical" aria-hidden="true"></div><div class="arrival-folder" aria-hidden="true"><span class="mono"><span>Greg Hannan</span><span>Independent practice</span></span><strong>Open studio.<br>Open the work.</strong><p>Front-end development / Selected projects</p></div><button class="arrival-skip">Skip intro ↗</button></div>
+<canvas id="reactive-grid" aria-hidden="true" hidden></canvas>
+<a class="skip" href="#workbench">Skip to projects</a>
+<div class="shell">
+<header class="header">
+<a class="identity" href="#top" aria-label="Greg Hannan, back to top"><span class="monogram" aria-hidden="true">GH</span><p class="mono">Independent<br>front-end developer</p></a>
+<nav class="mono" aria-label="Main navigation"><a href="https://joe-hireable.github.io/greg-hannan-signal-house/concepts/">Concepts</a><a href="#about">About</a><a class="nav-cv" href="https://framerusercontent.com/assets/IYE6Wau930MZY9Vzej01Cy5TuM.pdf" target="_blank" rel="noopener">CV ↗</a><a class="nav-contact" href="mailto:gregorymarkhannan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main id="top">
+<section class="hero" aria-labelledby="name">
+<h1 class="name" id="name">GREG HANNAN</h1>
+<div class="hero-bottom"><p class="statement">The work. The thinking. <br>Everything on the table.</p><div class="bio-intro"><span class="cross" aria-hidden="true"></span><p>Senior front-end developer with 15+ years’ full-stack experience. Websites for agencies, brands and independent creatives.</p></div></div>
+</section>
+<section class="bench" id="workbench" aria-label="Interactive project workbench">
+<div class="bench-rail mono"><span class="rail-label">Open studio / selected work</span><span class="rail-right"><span>Ready for inspection</span><span id="current-count">01 / 09</span><span class="tray-nav"><button class="icon-btn" id="previous-project" aria-label="Previous project">←</button><button class="icon-btn" id="next-project" aria-label="Next project">→</button></span></span></div>
+<div class="stage" id="stage" role="tabpanel" aria-labelledby="project-tab-0">
+<div class="display"><div class="browser-head"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser-url" id="project-domain"></span><span aria-hidden="true">↗</span></div><button class="screen" id="screen-open" aria-label="Inspect Black Rabbit"><img id="project-image" src="assets/black-rabbit.jpg" alt="Black Rabbit website preview"><span class="screen-action mono">Inspect project <span aria-hidden="true">↗</span></span></button><div class="display-foot"><span id="image-caption">Website capture · October 2026</span><span>Click to look closer</span></div></div>
+<div class="dossier"><div class="file-top mono"><span id="project-number" class="serial">File / 01</span><span class="serial-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><h2 class="project-title stage-content" id="project-title"></h2><p class="project-summary stage-content" id="project-summary"></p><dl class="file-data stage-content"><dt>Built with</dt><dd id="project-stack"></dd><dt>Completed</dt><dd id="project-date"></dd></dl><button class="open-file mono" id="open-project"><span class="button-text">Open project file</span><span aria-hidden="true">↗</span></button></div>
+</div>
+</section>
+<section class="tray-section" aria-label="Choose a project"><div class="tray-heading"><p class="mono">01—09 / Project tray · select to explore</p><span class="mono">Swipe to browse →</span></div><div class="trays" id="project-trays" role="tablist" aria-label="Projects"></div><p class="tray-helper">Pick a project. Open the file. See the build behind the finish.</p></section>
+<section class="profile" id="about" aria-labelledby="profile-title"><div><p class="section-label mono">A bit of background</p><h2 id="profile-title">Craft at the front.<br>Depth underneath.</h2></div><div class="profile-copy"><p>I build websites with a focus on front-end delivery — from WordPress builds to React-based headless experiences.</p><p>My work brings designers’ ideas into the browser, with experience spanning discovery, development and QA. I work with designers and marketers, and have mentored junior developers along the way.</p><div class="capabilities" aria-label="Technologies"><span>Next.js</span><span>React</span><span>WordPress</span><span>Gatsby</span><span>Shopify</span><span>PHP</span><span>Medusa</span></div><div class="career"><p>Independent developer<br><span>2009 — present</span></p><p>Previously, Line Industries<br><span>Senior Front-end Developer · 2011–2016</span></p></div></div></section>
+<section class="contact" aria-labelledby="contact-title"><div><p class="mono">Contract or permanent · UK opportunities</p><h2 id="contact-title">Let’s make something<br>worth opening.</h2></div><a href="mailto:gregorymarkhannan@gmail.com" aria-label="Email Greg Hannan"><span aria-hidden="true">↗</span></a></section>
+</main>
+<footer class="footer"><p>Greg Hannan / Open Studio / Concept 02</p><div class="footer-links"><a href="https://github.com/gregorymark" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/greghannan/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://framerusercontent.com/assets/IYE6Wau930MZY9Vzej01Cy5TuM.pdf" target="_blank" rel="noopener">View CV ↗</a></div></footer>
+</div>
+<div class="sr-only" aria-live="polite" id="selection-status"></div>
+<dialog class="inspector" id="inspector" aria-labelledby="dialog-title">
+<div class="inspector-bar mono"><span id="dialog-file-number">Project file / 01</span><button class="close-dialog mono" id="close-dialog" autofocus>Close <span aria-hidden="true">✕</span></button></div>
+<div class="dialog-heading"><h2 id="dialog-title"></h2><p class="mono" id="dialog-meta"></p></div>
+<div class="dialog-tabs" role="tablist" aria-label="Project file view"><button id="preview-tab" role="tab" aria-selected="true" aria-controls="preview-panel">01 / Preview</button><button id="notes-tab" role="tab" aria-selected="false" aria-controls="notes-panel" tabindex="-1">02 / Build notes</button></div>
+<div class="dialog-panel" id="preview-panel" role="tabpanel" aria-labelledby="preview-tab" tabindex="0"><img class="preview-img" id="dialog-image" alt=""><p class="preview-caption" id="dialog-caption"></p></div>
+<div class="dialog-panel" id="notes-panel" role="tabpanel" aria-labelledby="notes-tab" tabindex="0" hidden><div class="notes-layout"><div><p class="mono">The brief, in brief</p><h3 id="notes-category"></h3><p id="notes-summary"></p><p class="evidence-note" id="evidence-note"></p></div><div><p class="mono" style="margin-bottom:18px">My contribution</p><ol class="contribution-list" id="contribution-list"></ol></div></div></div>
+<div class="dialog-footer mono"><a class="live-link" id="project-link" href="#" target="_blank" rel="noopener"><span id="live-link-label">Visit website</span><span aria-hidden="true">↗</span></a><button class="dialog-next mono" id="dialog-next">Next project →</button></div>
+</dialog>
+<script>
+'use strict';
+const projects = [{"name":"Black Rabbit","slug":"black-rabbit","date":"Oct 2024","stack":"Next.js, headless WordPress","url":"https://www.blackrabbit.london/","category":"Headless development","summary":"An immersive website bringing photography, motion and sound together for a product marketing company.","bullets":["Built a Next.js front end with a headless WordPress CMS for a product marketing company.","Combined photography, motion and sound in an immersive showcase of the company’s work."]},{"name":"Nalla","slug":"nalla","date":"Sep 2025","stack":"WordPress","url":"https://nalla.co.uk/","category":"Brand websites","summary":"A WordPress website for a London branding agency, with expressive animation and considered page transitions.","bullets":["Developed a WordPress website for a London branding agency, using animation and page transitions to express its visual identity.","Balanced the visual treatment with a focus on fast navigation and a clean browsing experience."]},{"name":"Greg Hannan Studio","slug":"greg-hannan-studio","date":"Jun 2022 build","stack":"Gatsby.js, React, Medusa","url":"https://github.com/gregorymark/ghstudio-storefront","category":"Editorial & commerce","summary":"An art portfolio and ecommerce build, adapting Gatsby and Medusa starter applications with custom storefront behaviour.","bullets":["Built an art portfolio and ecommerce site with Gatsby.js and Medusa, adapting the platform’s starter applications.","Added product collection filtering and dedicated collection pages in the React storefront.","Corrected checkout total calculations and awaited shipping-method updates to preserve the selected delivery method.","Configured Stripe automatic payment capture and SendGrid templates for customer and user password resets."]},{"name":"Caroline Leeming","slug":"caroline-leeming","date":"Oct 2023","stack":"Gatsby.js, headless WordPress","url":"https://carolineleeming.com/","category":"Headless development","summary":"A photography and moving-image portfolio with a Gatsby front end and WordPress content management.","bullets":["Built a Gatsby.js front end with a headless WordPress CMS for photography and moving-image content.","Used page transitions to connect the portfolio experience."]},{"name":"Growth Partner","slug":"growth-partner","date":"Apr 2025","stack":"WordPress","url":"https://growthpartner.co.uk/","category":"Brand websites","summary":"A visually expressive WordPress website presenting an investment business and its information.","bullets":["Built a WordPress website for an investment business, presenting its information through a visually expressive interface.","Combined visual flourishes with a focus on quick navigation to make the content engaging to explore."]},{"name":"Overdress","slug":"overdress","date":"Jul 2024","stack":"WordPress, affiliate linking","url":"https://overdress.co.uk/","category":"Editorial & commerce","summary":"A fashion publishing website connecting editorial content, a distinctive brand and affiliate shopping.","bullets":["Developed a WordPress website to bring a fashion creator’s brand and editorial content together.","Integrated affiliate links throughout the site, connecting the content with product discovery and shopping."]},{"name":"Alma Artists","slug":"alma-artists","date":"Oct 2022","stack":"Gatsby.js, headless WordPress","url":"https://www.alma-artists.com/","category":"Headless development","summary":"A portfolio website combining a Gatsby front end with WordPress content management.","bullets":["Built a Gatsby.js portfolio with WordPress as the content management back end."]},{"name":"Candice Bailey","slug":"candice-bailey","date":"Oct 2024","stack":"WordPress","url":"https://candicebailey.co.uk/","category":"Brand websites","summary":"A clean WordPress portfolio with restrained interaction and a focus on the work.","bullets":["Built a WordPress portfolio with a clean, minimal presentation.","Added simple interactive elements to support exploration of the work."]},{"name":"Adam Goodison Photography","slug":"adam-goodison","date":"Feb 2022","stack":"WordPress","url":"https://www.adamgoodisonphotography.com/","category":"Brand websites","summary":"A visually focused WordPress portfolio for a photographer.","bullets":["Developed a WordPress portfolio with a simple, visually focused presentation for a photographer."]}];
+const byId=id=>document.getElementById(id);
+const assets='assets/';
+let current=0;
+let returnFocus=null;
+const modal=byId('inspector');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+const number=index=>String(index+1).padStart(2,'0');
+const caption=project=>project.slug==='greg-hannan-studio'?'Architecture illustration based on Greg’s 2022 Gatsby / Medusa build. This is not a screenshot of the original website.':'Website preview captured October 2026. Project completed '+project.date+'.';
+function buildTrays(){
+  projects.forEach((project,index)=>{
+    const button=document.createElement('button');
+    button.type='button';button.className='tray';button.id='project-tab-'+index;
+    button.setAttribute('role','tab');button.setAttribute('aria-controls','stage');
+    button.setAttribute('aria-selected',String(index===0));button.tabIndex=index===0?0:-1;
+    const header=document.createElement('span');header.className='tray-number mono';
+    const count=document.createElement('span');count.textContent=number(index)+' / '+project.category;
+    const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
+    header.append(count,arrow);
+    const image=document.createElement('img');image.src=assets+project.slug+'.jpg';image.alt='';image.loading='lazy';
+    const title=document.createElement('span');title.className='tray-title';title.textContent=project.name;
+    button.append(header,image,title);button.addEventListener('click',()=>selectProject(index,true));
+    button.addEventListener('keydown',event=>{
+      let target;
+      if(event.key==='ArrowRight')target=(index+1)%projects.length;
+      else if(event.key==='ArrowLeft')target=(index-1+projects.length)%projects.length;
+      else if(event.key==='Home')target=0;
+      else if(event.key==='End')target=projects.length-1;
+      else return;
+      event.preventDefault();selectProject(target,true);byId('project-tab-'+target).focus({preventScroll:true});
+    });
+    byId('project-trays').append(button);
+  });
+}
+function selectProject(index,animate=false){
+  current=(index+projects.length)%projects.length;
+  const project=projects[current];
+  byId('current-count').textContent=number(current)+' / '+number(projects.length-1);
+  byId('project-number').textContent='File / '+number(current);
+  byId('project-title').textContent=project.name;
+  byId('project-summary').textContent=project.summary;
+  byId('project-stack').textContent=project.stack;
+  byId('project-date').textContent=project.date;
+  byId('project-domain').textContent=new URL(project.url).hostname.replace(/^www\./,'');
+  byId('project-image').src=assets+project.slug+'.jpg';
+  byId('project-image').alt=project.slug==='greg-hannan-studio'?'Gatsby, React and Medusa architecture illustration':project.name+' website preview';
+  byId('image-caption').textContent=project.slug==='greg-hannan-studio'?'Build architecture · illustrated from source':'Website capture · October 2026';
+  byId('screen-open').setAttribute('aria-label','Inspect '+project.name);
+  byId('open-project').setAttribute('aria-label','Open '+project.name+' project file');
+  byId('stage').setAttribute('aria-labelledby','project-tab-'+current);
+  document.querySelectorAll('.tray').forEach((button,i)=>{button.setAttribute('aria-selected',String(i===current));button.tabIndex=i===current?0:-1;});
+  if(animate){
+    byId('selection-status').textContent=project.name+' selected. '+project.stack+'.';
+    const selected=byId('project-tab-'+current),trays=byId('project-trays');
+    const left=selected.offsetLeft-trays.offsetLeft;
+    if(left<trays.scrollLeft||left+selected.offsetWidth>trays.scrollLeft+trays.clientWidth){trays.scrollTo({left:Math.max(0,left-12),behavior:reduceMotion.matches?'auto':'smooth'});}
+    byId('stage').classList.remove('stage-changing');
+    void byId('stage').offsetWidth;
+    byId('stage').classList.add('stage-changing');
+  }
+  if(modal.open)populateDialog();
+}
+function setTab(tab,focus=false){
+  ['preview','notes'].forEach(id=>{
+    const selected=id===tab;
+    byId(id+'-tab').setAttribute('aria-selected',String(selected));
+    byId(id+'-tab').tabIndex=selected?0:-1;
+    byId(id+'-panel').hidden=!selected;
+  });
+  if(focus)byId(tab+'-tab').focus();
+}
+function populateDialog(){
+  const project=projects[current];
+  byId('dialog-file-number').textContent='Project file / '+number(current)+' — '+number(projects.length-1);
+  byId('dialog-title').textContent=project.name;
+  byId('dialog-meta').textContent=project.stack+' / '+project.date;
+  byId('dialog-image').src=assets+project.slug+'.jpg';
+  byId('dialog-image').alt=byId('project-image').alt;
+  byId('dialog-caption').textContent=caption(project);
+  byId('notes-category').textContent=project.category;
+  byId('notes-summary').textContent=project.summary;
+  byId('evidence-note').textContent=project.slug==='greg-hannan-studio'?'Adapted from Gatsby and Medusa starter applications. The contributions listed here are supported by Greg’s CV and his authored GitHub commits.':'Project details are based on Greg’s original CV. The current website may include subsequent changes.';
+  byId('contribution-list').replaceChildren(...project.bullets.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));
+  byId('project-link').href=project.url;
+  byId('live-link-label').textContent=project.slug==='greg-hannan-studio'?'Explore the source':'Visit website';
+  byId('dialog-next').textContent='Next: '+projects[(current+1)%projects.length].name+' →';
+}
+function openDialog(){
+  returnFocus=document.activeElement;
+  populateDialog();setTab('preview');
+  modal.showModal();document.body.classList.add('modal-open');
+  modal.scrollTop=0;
+}
+function closeDialog(){modal.close();}
+byId('screen-open').addEventListener('click',openDialog);
+byId('open-project').addEventListener('click',openDialog);
+byId('close-dialog').addEventListener('click',closeDialog);
+modal.addEventListener('close',()=>{document.body.classList.remove('modal-open');returnFocus?.focus({preventScroll:true});});
+modal.addEventListener('click',event=>{if(event.target!==modal)return;const bounds=modal.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)closeDialog();});
+['preview','notes'].forEach(id=>{
+  byId(id+'-tab').addEventListener('click',()=>setTab(id));
+  byId(id+'-tab').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();setTab(event.key==='Home'?'preview':event.key==='End'?'notes':id==='preview'?'notes':'preview',true);}});
+});
+byId('previous-project').addEventListener('click',()=>selectProject(current-1,true));
+byId('next-project').addEventListener('click',()=>selectProject(current+1,true));
+byId('dialog-next').addEventListener('click',()=>{selectProject(current+1,true);modal.scrollTop=0;byId('dialog-title').setAttribute('tabindex','-1');byId('dialog-title').focus({preventScroll:true});});
+buildTrays();selectProject(0);
+function startReactiveGrid(){
+  const canvas=byId('reactive-grid'),context=canvas.getContext('2d');
+  const coarse=matchMedia('(pointer: coarse)');
+  if(!context)return;
+  let width=0,height=0,frame=0,enabled=false,strength=0,target=0;
+  let x=-1000,y=-1000,aimX=x,aimY=y;
+  const spacing=32,radius=190;
+  function point(px,py){
+    const dx=px-x,dy=py-y,distance=Math.hypot(dx,dy);
+    if(distance>=radius||!strength)return [px,py];
+    const influence=Math.pow(1-distance/radius,2)*strength*.48;
+    return [px+dx*influence,py+dy*influence];
+  }
+  function paint(){
+    context.clearRect(0,0,width,height);
+    context.lineWidth=1;context.strokeStyle='rgba(32,35,31,.09)';
+    const offset=-(window.scrollY%spacing);
+    context.beginPath();
+    for(let gx=0;gx<=width;gx+=spacing){
+      for(let gy=-spacing;gy<=height+spacing;gy+=8){const p=point(gx+.5,gy);if(gy===-spacing)context.moveTo(...p);else context.lineTo(...p);}
+    }
+    for(let gy=offset;gy<=height;gy+=spacing){
+      for(let gx=-spacing;gx<=width+spacing;gx+=8){const p=point(gx,gy+.5);if(gx===-spacing)context.moveTo(...p);else context.lineTo(...p);}
+    }
+    context.stroke();
+  }
+  function animate(){
+    frame=0;if(!enabled)return;
+    x+=(aimX-x)*.16;y+=(aimY-y)*.16;strength+=(target-strength)*.13;
+    const settled=Math.abs(target-strength)<.001&&Math.abs(aimX-x)<.1&&Math.abs(aimY-y)<.1;
+    if(settled){x=aimX;y=aimY;strength=target;}
+    paint();
+    if(!settled)frame=requestAnimationFrame(animate);
+  }
+  function requestPaint(){if(enabled&&!frame)frame=requestAnimationFrame(animate);}
+  function resize(){
+    width=window.innerWidth;height=window.innerHeight;
+    const density=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(width*density);canvas.height=Math.round(height*density);
+    context.setTransform(density,0,0,density,0,0);requestPaint();
+  }
+  function settle(){target=0;requestPaint();}
+  function configure(){
+    enabled=!reduceMotion.matches&&!coarse.matches;
+    canvas.hidden=!enabled;document.body.classList.toggle('reactive-grid',enabled);
+    cancelAnimationFrame(frame);frame=0;strength=0;target=0;
+    if(enabled)resize();
+  }
+  window.addEventListener('pointermove',event=>{
+    if(!enabled||event.pointerType==='touch')return;
+    if(target===0){x=event.clientX;y=event.clientY;}
+    aimX=event.clientX;aimY=event.clientY;target=1;requestPaint();
+  },{passive:true});
+  document.documentElement.addEventListener('pointerleave',settle);
+  window.addEventListener('blur',settle);
+  window.addEventListener('resize',()=>{if(enabled)resize();},{passive:true});
+  window.addEventListener('scroll',requestPaint,{passive:true});
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){cancelAnimationFrame(frame);frame=0;strength=0;target=0;if(enabled)paint();}
+  });
+  reduceMotion.addEventListener('change',configure);coarse.addEventListener('change',configure);
+  configure();
+}
+startReactiveGrid();
+
+function showArrival(){
+  const overlay=document.getElementById('arrival');
+  const preference=matchMedia('(prefers-reduced-motion: reduce)');
+  const key='greg-hannan-open-studio-arrival';
+  let seen=false;
+  try{seen=sessionStorage.getItem(key)==='seen';}catch{}
+  if(preference.matches||(seen&&document.documentElement.dataset.replayIntro!=='true'))return;
+  try{sessionStorage.setItem(key,'seen');}catch{}
+  overlay.hidden=false;
+  let timer;
+  function finish(){
+    overlay.hidden=true;
+    clearTimeout(timer);
+    document.removeEventListener('keydown',onKey);
+    document.removeEventListener('focusin',onFocus);
+    preference.removeEventListener('change',finish);
+  }
+  function onKey(event){if(event.key==='Escape')finish();}
+  function onFocus(event){if(!overlay.contains(event.target))finish();}
+  overlay.querySelector('button').addEventListener('click',()=>{
+    const usedKeyboard=document.activeElement===overlay.querySelector('button');
+    finish();
+    if(usedKeyboard)document.querySelector('header a').focus({preventScroll:true});
+  },{once:true});
+  overlay.addEventListener('animationend',event=>{if(event.target===overlay)finish();});
+  document.addEventListener('keydown',onKey);
+  document.addEventListener('focusin',onFocus);
+  preference.addEventListener('change',finish);
+  timer=setTimeout(finish,1250);
+}
+showArrival();
+
+</script>
+</body>
+</html>
